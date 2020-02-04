@@ -5,7 +5,6 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
-    @review = Review.where(shelter_id: @shelter.id)
   end
 
   def new
