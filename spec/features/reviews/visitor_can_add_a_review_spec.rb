@@ -7,7 +7,7 @@ RSpec.describe "Visitor can add a shelter review from the shelter show page" do
     review1 = Review.create!(title: "Best Shelter EVER!", rating: "5", content: "I now have my best friend because of this place", shelter_id: shelter1.id)
     review2 = Review.create!(title: "Above Average Shelter", rating: "4", content: "I am pretty sure they gave me a dinosaur not a dog.", picture: "https://s7d2.scene7.com/is/image/PetSmart/5290431", shelter_id: shelter1.id)
 
-    visit "shelter/#{shelter1.id}"
+    visit "shelters/#{shelter1.id}"
 
     expect(page).to have_link("New Review")
 
