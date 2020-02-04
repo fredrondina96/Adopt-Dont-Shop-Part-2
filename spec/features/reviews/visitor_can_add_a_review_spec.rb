@@ -13,7 +13,7 @@ RSpec.describe "Visitor can add a shelter review from the shelter show page" do
 
     click_link("New Review")
 
-    expect(current_path).to eq("/shelter/#{shelter1.id}/review")
+    expect(current_path).to eq("/shelters/#{shelter1.id}/reviews/new")
 
     fill_in "title", with: "Lovely Shelter"
     fill_in "rating", with: "3"
@@ -24,7 +24,7 @@ RSpec.describe "Visitor can add a shelter review from the shelter show page" do
 
     click_on("Submit")
 
-    expect(current_path).to eq("/shelter/#{shelter1.id}")
+    expect(current_path).to eq("/shelters/#{shelter1.id}")
 
     expect(page).to have_content("Lovely Shelter")
     expect(page).to have_content("3")

@@ -225,6 +225,7 @@
           1,
           null,
           1,
+          1,
           null
         ]
       },
@@ -736,22 +737,22 @@
           null,
           1,
           null,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null
         ]
@@ -1328,8 +1329,8 @@
           null,
           null,
           1,
-          16,
-          16,
+          17,
+          17,
           null,
           null,
           1,
@@ -1369,8 +1370,28 @@
           1,
           null
         ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/controllers/reviews_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1580831023
+    "timestamp": 1580857535
   }
 }
