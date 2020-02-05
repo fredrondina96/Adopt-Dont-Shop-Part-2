@@ -12,8 +12,10 @@
 
 <h1>Reviews</h1>
 <% @shelter.reviews.each do |review| %>
+<p>
   <%= review.title %>
   <%= review.rating %>
   <%= review.content %>
   <%= review.picture %>
+</p>
 <% end %>
