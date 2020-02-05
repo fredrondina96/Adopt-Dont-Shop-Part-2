@@ -5,6 +5,7 @@ class SheltersController < ApplicationController
 
   def show
     @shelter = Shelter.find(params[:id])
+    # binding.pry
   end
 
   def new
@@ -18,6 +19,15 @@ class SheltersController < ApplicationController
 
   def edit
     @shelter_id = params[:id]
+  end
+
+  # def review_edit
+  #   @shelter_id = params[:id]
+  #   # binding.pry
+  # end
+
+  def review_update
+    # binding.pry
   end
 
   def update

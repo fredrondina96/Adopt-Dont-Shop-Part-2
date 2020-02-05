@@ -7,11 +7,12 @@ RSpec.describe 'as a visitor', type: :feature do
       review1 = Review.create!(title: "Best Shelter EVER!", rating: "5", content: "I now have my best friend because of this place", shelter_id: shelter1.id)
       title = "Turns out these are Dino's after all"
       content = "I didnt notice until I got home that this dog is actually 100 feet tall 5/5 would recommend"
+      rating = "5"
       visit "shelters/#{shelter1.id}"
 
       click_on 'Edit'
 
-      expect(current_path).to eq("/shelters/#{shelter1.id}/edit")
+      expect(current_path).to eq("/reviews/#{review1.id}/edit")
       fill_in :title, with: title
       fill_in :content, with: content
       click_on 'Update Review'
