@@ -11,11 +11,18 @@
 <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}/", method: :delete%><br>
 
 <h1>Reviews</h1>
+
+<%= link_to 'New Review', "/shelters/#{@shelter.id}/reviews/new"%><br>
 <% @shelter.reviews.each do |review| %>
-  <%= review.id %>
+  <section id = "review-<%=review.id%>">
   <%= review.title %>
   <%= review.rating %>
   <%= review.content %>
   <%= review.picture %>
+
   <%= link_to 'Edit', "/reviews/#{review.id}/edit" %>
+
+  <%= link_to 'Delete Review', "/reviews/#{review.id}/", method: :delete%><br>
+  </section>
+
 <% end %>
