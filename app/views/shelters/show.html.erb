@@ -19,6 +19,10 @@
   <%= review.rating %>
   <%= review.content %>
   <%= review.picture %>
+
+  <%= link_to 'Edit', "/reviews/#{review.id}/edit" %>
+
   <%= link_to 'Delete Review', "/reviews/#{review.id}/", method: :delete%><br>
   </section>
+
 <% end %>

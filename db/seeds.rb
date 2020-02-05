@@ -11,3 +11,4 @@ shelter2 = Shelter.create!(name: 'Meg\'s Shelter', address: "150 Main Street", c
 
 snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Athena', age: 1, sex: 'female', shelter: shelter1, description: 'butthead', adoption_status: "Pending Adoption")
 sadie = Pet.create!(image: 'https://images.halloweencostumes.com/products/45834/1-1/dog-dino-pup-costume.jpg', name: 'Odell', age: 4, sex: "M", shelter: shelter2, description: 'good dog', adoption_status: "Adoptable")
+review1 = Review.create!(title: "Best Shelter EVER!", rating: "5", content: "I now have my best friend because of this place", shelter_id: shelter1.id)
