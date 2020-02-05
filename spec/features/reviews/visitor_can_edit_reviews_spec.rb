@@ -28,6 +28,21 @@ RSpec.describe 'as a visitor', type: :feature do
       expect(page).to have_content("100 feet tall")
 
     end
+
+    it "Rejects review update if required field is left blank" do
+      shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+      review1 = Review.create!(title: "Best Shelter EVER!", rating: "5", content: "I now have my best friend because of this place", shelter_id: shelter1.id)
+      title = ""
+      content = ""
+      rating = "5"
+      visit "shelters/#{shelter1.id}"
+      click_on 'Edit'
+      fill_in :title, with: title
+      fill_in :content, with: content
+      fill_in :rating, with: rating
+      click_on 'Update Review'
+      expect(page).to have_content("Review not updated: Required information missing.")
+    end
   end
 
 end
