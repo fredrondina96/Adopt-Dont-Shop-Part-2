@@ -15,7 +15,7 @@
 
     <%= link_to "All Pets", "/pets" %><br>
     <%= link_to "All Shelters", "/shelters" %><br>
-    
+    Favorites: <%= cookies[:pets].length %>
     <%= yield %>
   </body>
 </html>
