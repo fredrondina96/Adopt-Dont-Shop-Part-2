@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-<<<<<<< HEAD
+
   def index
     @reviews = Review.all
   end
@@ -15,10 +15,10 @@ class ReviewsController < ApplicationController
 
   def update
     review = Review.find(params[:id])
-    # binding.pry
     review.update(review_params)
-    # binding.pry
-=======
+    redirect_to "/shelters/#{review.shelter_id}"
+  end
+
   def new
     @shelter_id = params[:shelter_id]
   end
@@ -37,18 +37,17 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     Review.destroy(params[:id])
->>>>>>> 99783656e54bb42f5bdcb055dd8d404642558d1f
     redirect_to "/shelters/#{review.shelter_id}"
   end
 
   private
-<<<<<<< HEAD
+
 
     def review_params
       params.permit(:title, :rating, :content, :picture)
-=======
+    end
+
     def review_params
       params.permit(:title, :rating, :content, :picture, :shelter_id)
->>>>>>> 99783656e54bb42f5bdcb055dd8d404642558d1f
     end
 end
