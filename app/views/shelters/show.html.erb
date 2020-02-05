@@ -14,10 +14,11 @@
 
 <%= link_to 'New Review', "/shelters/#{@shelter.id}/reviews/new"%><br>
 <% @shelter.reviews.each do |review| %>
-<p>
+  <section id = "review-<%=review.id%>">
   <%= review.title %>
   <%= review.rating %>
   <%= review.content %>
   <%= review.picture %>
-</p>
+  <%= link_to 'Delete Review', "/reviews/#{review.id}/", method: :delete%><br>
+  </section>
 <% end %>
