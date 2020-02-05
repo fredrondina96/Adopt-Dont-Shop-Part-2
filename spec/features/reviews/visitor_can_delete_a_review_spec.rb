@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpce.describe "A visitor can delete a review" do
+RSpec.describe "A visitor can delete a review" do
   it "deletes a review" do
     shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
 
