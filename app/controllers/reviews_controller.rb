@@ -9,10 +9,20 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review_id = params[:id]
+    @review = Review.find(params[:id])
   end
 
   def update
-    binding.pry
+    review = Review.find(params[:id])
+    # binding.pry
+    review.update(review_params)
+    # binding.pry
+    redirect_to "/shelters/#{review.shelter_id}"
   end
+
+  private
+
+    def review_params
+      params.permit(:title, :rating, :content, :picture)
+    end
 end

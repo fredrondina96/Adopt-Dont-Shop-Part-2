@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   delete '/pets/:id', to: 'pets#destroy'
 
   get '/reviews/:id/edit', to: 'reviews#edit'
-  patch '/reviews/:id', to: 'review#update'
+  patch '/reviews/:id', to: 'reviews#update'
 end

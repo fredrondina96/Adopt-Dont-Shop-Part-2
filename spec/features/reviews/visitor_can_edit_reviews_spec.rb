@@ -11,14 +11,18 @@ RSpec.describe 'as a visitor', type: :feature do
       visit "shelters/#{shelter1.id}"
 
       click_on 'Edit'
-
+      # binding.pry
+      expect(find_field(:title).value).to eq (review1.title)
+      expect(find_field(:rating).value).to eq (review1.rating)
+      expect(find_field(:content).value).to eq (review1.content)
+      expect(find_field(:picture).value).to eq ((review1.picture) || (""))
       expect(current_path).to eq("/reviews/#{review1.id}/edit")
       fill_in :title, with: title
       fill_in :content, with: content
       click_on 'Update Review'
 
 
-      expect(current_path).to eq("/shelters/#{shelter1.id}")
+      expect(current_path).to eq("/shelters/#{review1.shelter_id}")
       expect(page).to_not have_content("Best Shelter EVER!")
       expect(page).to have_content("Turns out these are Dino's after all")
       expect(page).to have_content("100 feet tall")
