@@ -42,11 +42,6 @@ class ReviewsController < ApplicationController
 
   private
 
-
-    def review_params
-      params.permit(:title, :rating, :content, :picture)
-    end
-
     def review_params
       params.permit(:title, :rating, :content, :picture, :shelter_id)
     end
