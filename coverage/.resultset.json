@@ -754,6 +754,43 @@
           1,
           1,
           null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/features/reviews/visitor_can_delete_a_review_spec.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -1329,13 +1366,7 @@
           null,
           null,
           1,
-<<<<<<< HEAD
           17,
-          17,
-=======
-          15,
-          null,
->>>>>>> 085f6e5df0a044686b4ea3ba0a33c24df365e35c
           null,
           null,
           1,
@@ -1373,6 +1404,7 @@
         "lines": [
           1,
           1,
+          1,
           null
         ]
       },
@@ -1380,23 +1412,29 @@
         "lines": [
           1,
           1,
-          1,
+          2,
           null,
           null,
           1,
+          2,
+          null,
+          2,
+          2,
           1,
+          null,
           1,
           1,
           null,
           null,
+          null,
           1,
           1,
-          1,
+          2,
           null,
           null
         ]
       }
     },
-    "timestamp": 1580851815
+    "timestamp": 1580927629
   }
 }

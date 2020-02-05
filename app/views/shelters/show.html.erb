@@ -11,9 +11,13 @@
 <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}/", method: :delete%><br>
 
 <h1>Reviews</h1>
+
+<%= link_to 'New Review', "/shelters/#{@shelter.id}/reviews/new"%><br>
 <% @shelter.reviews.each do |review| %>
+<p>
   <%= review.title %>
   <%= review.rating %>
   <%= review.content %>
-  <%= image_tag("#{review.picture}", :size => "260x180") %>
+  <%= review.picture %>
+</p>
 <% end %>
