@@ -24,4 +24,16 @@ RSpec.describe "Visitor can favorite and view their favorites" do
     expect(page).to have_content("#{snickers.name} has been added to your favorites")
   end
 
+  it "can show all of the favorited pets at /favorites" do
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+    snoop = Pet.create!(image: 'https://www.pinclipart.com/picdir/big/2-21285_clip-art-snoopy-snoop-dogg-charlie-brown-png.png', name: 'Snoop', age: 9, sex: 'Male', shelter: shelter1)
+    visit "/pets/#{snoop.id}"
+    click_link("Favorite")
+    expect(current_path).to eq("/pets/#{snoop.id}")
+    visit "/favorites"
+    expect(page).to have_content("Snoop")
+    click_link("Snoop")
+    expect(current_path).to eq("/pets/#{snoop.id}")
+  end
 end
