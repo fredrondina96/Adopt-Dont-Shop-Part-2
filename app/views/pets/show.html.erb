@@ -7,5 +7,6 @@
 <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %></p><br>
 <p>Status: <%= @pet.adoption_status %></p><br>
 
+<%= link_to 'Favorite', "/favorite/#{params[:id]}", method: :patch %><br>
 <%= link_to 'Update Pet', "/pets/#{params[:id]}/edit" %><br>
 <%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br>
