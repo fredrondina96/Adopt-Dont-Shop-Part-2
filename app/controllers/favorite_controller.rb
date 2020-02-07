@@ -13,4 +13,12 @@ class FavoriteController < ApplicationController
     redirect_to "/pets/#{params[:pet_id]}"
     flash[:notice] = "#{pet.name} has been added to your favorites"
   end
+
+  def index
+  
+    #Pet.find(favorites.contents.keys)
+    #active record queries
+    #favorites.contents.keys.each do |pet|
+    #find a way to render each pet here
+  end
 end
