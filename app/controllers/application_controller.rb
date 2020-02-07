@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :handle_cookies
+  helper_method :favorites
 
-  def handle_cookies
-    cookies[:pets] = [2, 6, 9]
-  end
+ def favorites
+   @favorites ||= Favorite.new(session[:favorites])
+ end
 end

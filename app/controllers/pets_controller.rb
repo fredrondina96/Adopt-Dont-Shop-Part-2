@@ -2,6 +2,7 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
+    # binding.pry
   end
 
   def show_index
@@ -19,7 +20,6 @@ class PetsController < ApplicationController
   def create
     shelter = Shelter.find(params[:shelter_id])
     pet = Pet.create!(pet_params)
-
     redirect_to "/shelters/#{shelter.id}/pets"
   end
 
