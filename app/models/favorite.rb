@@ -14,7 +14,6 @@ class Favorite
   end
 
   def favorite_count
-    # binding.pry
     if self.contents == nil
       "0"
     else
