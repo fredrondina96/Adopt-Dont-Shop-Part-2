@@ -1634,6 +1634,34 @@
           null
         ]
       },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/models/pet_application_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/pet_application.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/models/pet_spec.rb": {
         "lines": [
           1,
@@ -1659,13 +1687,6 @@
           1,
           1,
           null,
-          null
-        ]
-      },
-      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
           null
         ]
       },
@@ -1900,6 +1921,6 @@
         ]
       }
     },
-    "timestamp": 1581183443
+    "timestamp": 1581201003
   }
 }
