@@ -24,11 +24,18 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     click_link("Adopt")
 
-    expect(current_path).to eq("/favorites/adopt")
+    expect(current_path).to eq("/application/new")
 
-    find(:css, "#pet-#{snickers.id}").set(true)
-    find(:css, "#pet-#{sadie.id}").set(true)
-    find(:css, "#pet-#{abbey.id}").set(false)
+    within("#pet-#{snickers.id}") do
+      page.check
+    end
+    within("#pet-#{sadie.id}") do
+      page.check
+    end
+    within("#pet-#{abbey.id}") do
+      page.check
+      page.uncheck
+    end
 
     fill_in "Name", with: "Cassie Achzenick"
     fill_in "Address", with: "24025 Nothing st"
@@ -36,17 +43,17 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
     fill_in "State", with: "CO"
     fill_in "Zip", with: "98027"
     fill_in "Phone Number", with: "777-777-7777"
-    fill_in "Description of why I'd make a good home for this/these pet(s)", with: "Becuase I love them"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
 
-    click_button "submit my application"
+    click_button "Submit My Application"
 
     #flash message:
-    expect(page).to have_content("You have successfully completed your application!!! ")
+    expect(page).to have_content("You have successfully completed your application!!!")
 
     expect(current_path).to eq("/favorites")
 
-    expect(page).to have_no_content("snickers")
-    expect(page).to have_no_content("sadie")
-    expect(page).to have_content("abbey")
+    expect(page).to have_no_content("Snickers")
+    expect(page).to have_no_content("Sadie")
+    expect(page).to have_content("Abbey")
   end
 end

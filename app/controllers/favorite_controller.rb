@@ -5,20 +5,11 @@ class FavoriteController < ApplicationController
     pet_id_str = pet.id.to_s
     favorites.add_pet(pet.id)
     session[:favorites] = favorites.contents
-    # quantity = favorites.count_of(pet.id)
-    # flash[:notice] = "You now have #{pluralize(quantity, "copy")} of #{} in your cart."
-    # session[:favorites][pet_id_str] ||= 0
-    # session[:favorites][pet_id_str] = session[:favorites][pet_id_str] + 1
-    # binding.pry
     redirect_to "/pets/#{params[:pet_id]}"
     flash[:notice] = "#{pet.name} has been added to your favorites"
   end
 
   def index
-  
-    #Pet.find(favorites.contents.keys)
-    #active record queries
-    #favorites.contents.keys.each do |pet|
-    #find a way to render each pet here
+
   end
 end
