@@ -244,25 +244,26 @@
           null
         ]
       },
+<<<<<<< HEAD
       "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/features/applications/visitor_can_list_pets_with_application_spec.rb": {
+=======
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/features/pets/visitor_can_add_a_pet_to_a_shelter_spec.rb": {
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
         "lines": [
           1,
           null,
           1,
           1,
+<<<<<<< HEAD
           0,
           null,
           0,
           0,
           0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          0,
+=======
+          1,
+          1,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
           null,
           0,
           null,
@@ -274,19 +275,7 @@
           null,
           0,
           null,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+<<<<<<< HEAD
           0,
           null,
           0,
@@ -300,10 +289,49 @@
           null,
           0,
           0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+=======
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
+          null,
+          0,
+          null,
+          0,
+          null,
+<<<<<<< HEAD
+          0,
+          0,
+          null,
+          0,
+          0,
           0,
           null,
           null,
           0,
+=======
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
           null,
           null
         ]
@@ -1473,6 +1501,44 @@
           null
         ]
       },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/models/application_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/application.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/models/favorite_spec.rb": {
         "lines": [
           1,
@@ -1511,6 +1577,20 @@
           0,
           null,
           null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
           null
         ]
       },
@@ -1520,28 +1600,76 @@
           1,
           null,
           1,
+<<<<<<< HEAD
+          10,
+=======
+          151,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+<<<<<<< HEAD
+          3,
+          null,
+          null,
+          1,
+          6,
+          0,
+          null,
+          6,
+=======
+          11,
+          null,
+          null,
+          1,
+          138,
+          0,
+          null,
+          138,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
+          null,
+          null,
+          null,
+          1,
+<<<<<<< HEAD
+          3,
+=======
+          10,
+          10,
+          30,
+          null,
           10,
           null,
           null,
           1,
-          0,
+          11,
           null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/models/pet_application_spec.rb": {
+        "lines": [
+          1,
           null,
           1,
-          3,
-          null,
           null,
           1,
-          6,
-          0,
+          2,
+          2,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
           null,
-          6,
-          null,
-          null,
-          null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/pet_application.rb": {
+        "lines": [
           1,
-          3,
-          null,
+          1,
+          1,
           null
         ]
       },
@@ -1569,12 +1697,6 @@
           1,
           1,
           1,
-          null,
-          null
-        ]
-      },
-      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/models/application_record.rb": {
-        "lines": [
           1,
           1,
           null
@@ -1618,7 +1740,11 @@
           null,
           null,
           1,
+<<<<<<< HEAD
           6,
+=======
+          29,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
           null,
           null,
           1,
@@ -1660,7 +1786,11 @@
           1,
           null,
           1,
+<<<<<<< HEAD
           14,
+=======
+          168,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
           null,
           null,
           null
@@ -1671,7 +1801,69 @@
           1,
           1,
           1,
+<<<<<<< HEAD
           3,
+=======
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/controllers/applications_controller.rb": {
+        "lines": [
+          1,
+          1,
+          9,
+          null,
+          null,
+          1,
+          8,
+          null,
+          8,
+          1,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          null,
+          7,
+          7,
+          null,
+          null,
+          null,
+          1,
+          1,
+          8,
+          null,
+          null
+        ]
+      },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/app/controllers/shelters_controller.rb": {
+        "lines": [
+          1,
+          1,
+          20,
+          null,
+          null,
+          1,
+          22,
+          null,
+          null,
+          1,
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
           3,
           3,
           3,
@@ -1686,6 +1878,10 @@
         ]
       }
     },
+<<<<<<< HEAD
     "timestamp": 1581264983
+=======
+    "timestamp": 1581214579
+>>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
   }
 }
