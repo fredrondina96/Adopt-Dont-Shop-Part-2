@@ -15,7 +15,7 @@
 
     <%= link_to "All Pets", "/pets" %><br>
     <%= link_to "All Shelters", "/shelters" %><br>
-    Favorites: <%= favorites.favorite_count %>
+    <%= link_to "Favorites:", "/favorites"%> <%= favorites.favorite_count %>
     <%= yield %>
   </body>
 </html>
