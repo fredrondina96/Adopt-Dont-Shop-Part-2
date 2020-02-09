@@ -10,6 +10,6 @@ class FavoriteController < ApplicationController
   end
 
   def index
-
+    @applications = Application.all
   end
 end

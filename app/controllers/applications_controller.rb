@@ -8,7 +8,6 @@ class ApplicationsController < ApplicationController
 
     if application.save
       flash[:notice] = "You have successfully completed your application!!!"
-
       params[:adopt_pets].each do |pet|
         adopted_pet = Pet.find(pet)
         adopted_pet.applications << application

@@ -52,8 +52,12 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     expect(current_path).to eq("/favorites")
 
-    expect(page).to have_no_content("Snickers")
-    expect(page).to have_no_content("Sadie")
-    expect(page).to have_content("Abbey")
+    expect(page).not_to have_selector("#favorite-#{snickers.id}")
+
+    expect(page).not_to have_selector("#favorite-#{sadie.id}")
+
+    within("#favorite-#{abbey.id}") do
+      expect(page).to have_content("Abbey")
+    end
   end
 end
