@@ -2,7 +2,6 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
-    # binding.pry
   end
 
   def show_index
@@ -38,9 +37,6 @@ class PetsController < ApplicationController
     redirect_to "/pets"
   end
 
-  def favorited
-    binding.pry
-  end
   private
     def pet_params
       params.permit(:name, :image, :description, :age, :sex, :shelter_id)
