@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20200209025209) do
-=======
-ActiveRecord::Schema.define(version: 20200208175932) do
->>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,9 +72,6 @@ ActiveRecord::Schema.define(version: 20200208175932) do
 
   add_foreign_key "pet_applications", "applications"
   add_foreign_key "pet_applications", "pets"
-<<<<<<< HEAD
   add_foreign_key "pets", "shelters"
   add_foreign_key "reviews", "shelters"
-=======
->>>>>>> 13ad12ed4fcfb248f595ffa3c6c00e10e19e5576
 end
