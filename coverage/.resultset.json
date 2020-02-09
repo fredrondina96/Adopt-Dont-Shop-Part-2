@@ -308,6 +308,35 @@
           null
         ]
       },
+      "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/features/applications/visitor_can_view_application_show_page_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/cassieachzenick/turing/mod2/projects/Adopt-Dont-Shop-Part-2/spec/features/favorites/visitor_can_favorite_pets_spec.rb": {
         "lines": [
           1,
@@ -1898,6 +1927,6 @@
         ]
       }
     },
-    "timestamp": 1581283237
+    "timestamp": 1581283985
   }
 }
