@@ -1,8 +1,11 @@
 <h1>Favorited Pets</h1><br><br>
 
- <% favorites.contents.keys.each do |pet| %>
- <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet}" %>
-  <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
+ <% favorites.contents.each do |pet_id, favorite| %>
+
+  <%if favorite >= 1%>
+    <%= link_to "#{Pet.find(pet_id).name}", "/pets/#{pet_id}" %>
+    <%= image_tag("#{Pet.find(pet_id).image}", :size => "260x180") %>
+  <%end%>
  <% end %>
 
  <%= link_to "Adopt", "/application/new" %>
