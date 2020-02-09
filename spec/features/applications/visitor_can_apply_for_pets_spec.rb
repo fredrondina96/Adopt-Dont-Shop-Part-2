@@ -11,15 +11,15 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     visit "/pets/#{snickers.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{sadie.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{abbey.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/favorites"
 
@@ -67,15 +67,15 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     visit "/pets/#{snickers.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{sadie.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{abbey.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/favorites"
 
