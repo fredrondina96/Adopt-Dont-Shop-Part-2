@@ -1,0 +1,36 @@
+<h1>Bring Home Your New Best Friend!!! </h1>
+
+
+<%= form_tag "/application", method: :post  do %>
+  <% @pets.each do |pet| %>
+    <section id='pet-<%= pet.id %>'>
+      <%= image_tag("#{pet.image}", :size => "260x180") %><br><br>
+      <p>Name: <%= pet.name %></p><br>
+      <%= label_tag :adopt %>
+      <%= check_box_tag "adopt_pets[]", pet.id %>
+    </section>
+    <%end%><br><br>
+
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name%><br><br>
+
+    <%= label_tag :address %><br>
+    <%= text_field_tag :address%><br><br>
+
+    <%= label_tag :city %><br>
+    <%= text_field_tag :city%><br><br>
+
+    <%= label_tag :state %><br>
+    <%= text_field_tag :state%><br><br>
+
+    <%= label_tag :zip %><br>
+    <%= text_field_tag :zip%><br><br>
+
+    <%= label_tag(:phone_number, "phone number") %><br>
+    <%= text_field_tag :phone_number%><br><br>
+
+    <%= label_tag(:description, "Description of why you'd make a good home for this/these pet(s)") %><br>
+    <%= text_field_tag :description%><br><br>
+
+    <%= submit_tag 'Submit My Application' %>
+<% end %>

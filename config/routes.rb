@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   delete '/reviews/:id', to: 'reviews#destroy'
 
   get '/favorites', to: 'favorite#index'
-  get '/application/new', to: 'apply#new'
-  post '/application', to: 'apply#create'
+  get '/application/new', to: 'applications#new'
+  post '/application', to: 'applications#create'
 end

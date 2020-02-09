@@ -10,7 +10,7 @@ class Favorite
   end
 
   def add_pet(id)
-  @contents[id.to_s] = count_of(id) + 1
+    @contents[id.to_s] = count_of(id) + 1
   end
 
   def favorite_count
@@ -19,6 +19,14 @@ class Favorite
     else
       self.contents.values.sum
     end
+  end
+
+  def all_pets
+    pets = []
+    @contents.map do |pet_id, amount|
+      pets << Pet.find(pet_id)
+    end
+    pets
   end
 
   def count_of(id)
