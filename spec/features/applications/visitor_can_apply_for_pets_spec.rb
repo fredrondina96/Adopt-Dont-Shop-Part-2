@@ -10,15 +10,15 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     visit "/pets/#{snickers.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{sadie.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{abbey.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/favorites"
 
@@ -52,12 +52,47 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     expect(current_path).to eq("/favorites")
 
+<<<<<<< HEAD
     expect(page).not_to have_selector("#favorite-#{snickers.id}")
+=======
+    expect(page).to have_no_content("Snickers")
+    expect(page).to have_no_content("Sadie")
+    expect(page).to have_content("Abbey")
+  end
+
+  it "doesnt submit application if information is missing" do
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+    sadie = Pet.create!(image: 'https://images.halloweencostumes.com/products/45834/1-1/dog-dino-pup-costume.jpg', name: 'Sadie', age: 3, sex: "Male", shelter: shelter1)
+    abbey = Pet.create!(image: 'https://petcostumecenter.com/wp-content/uploads/2019/08/Pupasaurus-Rex-T-Rex-Dog-Cat-Costume-.png', name: 'Abbey', age: 6, sex: "Male", shelter: shelter1)
+
+    visit "/pets/#{snickers.id}"
+
+    click_link("Favorite Pet")
+
+    visit "/pets/#{sadie.id}"
+
+    click_link("Favorite Pet")
+>>>>>>> 96a91930a042a7a78cd4a9fad53161902f85b242
 
     expect(page).not_to have_selector("#favorite-#{sadie.id}")
 
+<<<<<<< HEAD
     within("#favorite-#{abbey.id}") do
       expect(page).to have_content("Abbey")
+=======
+    click_link("Favorite Pet")
+
+    visit "/favorites"
+
+    click_link("Adopt")
+
+    expect(current_path).to eq("/application/new")
+
+    within("#pet-#{snickers.id}") do
+      page.check
+>>>>>>> 96a91930a042a7a78cd4a9fad53161902f85b242
     end
   end
 end

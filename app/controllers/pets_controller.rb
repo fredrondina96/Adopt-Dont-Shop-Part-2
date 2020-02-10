@@ -2,7 +2,6 @@ class PetsController < ApplicationController
 
   def index
     @pets = Pet.all
-    # binding.pry
   end
 
   def show_index

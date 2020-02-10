@@ -5,6 +5,7 @@
     <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet.to_i}" %>
     <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
   </section>
+
  <% end %>
 
  <%= link_to "Adopt", "/applications/new" %></br></br></br>
