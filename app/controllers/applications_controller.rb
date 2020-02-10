@@ -16,9 +16,13 @@ class ApplicationsController < ApplicationController
 
       redirect_to '/favorites'
     else
-      redirect_to '/application/new'
+      redirect_to '/applications/new'
       flash[:notice] = "You must complete all fields on this form in order to submit your application."
     end
+  end
+
+  def show
+    @application = Application.find(params[:id])
   end
 
   private

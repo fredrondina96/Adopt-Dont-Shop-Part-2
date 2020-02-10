@@ -5,15 +5,9 @@
     <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet.to_i}" %>
     <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
   </section>
- <% favorites.contents.each do |pet_id, favorite| %>
-
-  <%if favorite >= 1%>
-    <%= link_to "#{Pet.find(pet_id).name}", "/pets/#{pet_id}" %>
-    <%= image_tag("#{Pet.find(pet_id).image}", :size => "260x180") %>
-  <%end%>
  <% end %>
 
- <%= link_to "Adopt", "/application/new" %></br></br></br>
+ <%= link_to "Adopt", "/applications/new" %></br></br></br>
 
  <h1>Pets with Pending Applications:</h1>
 <% @applications.each do |application|%>

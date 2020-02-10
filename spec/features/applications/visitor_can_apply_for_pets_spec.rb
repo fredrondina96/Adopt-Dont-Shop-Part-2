@@ -24,7 +24,7 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     click_link("Adopt")
 
-    expect(current_path).to eq("/application/new")
+    expect(current_path).to eq("/applications/new")
 
     within("#pet-#{snickers.id}") do
       page.check
@@ -55,6 +55,11 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
     expect(page).not_to have_selector("#favorite-#{snickers.id}")
 
     expect(page).not_to have_selector("#favorite-#{sadie.id}")
+    expect(page).to have_selector("#favorite-#{abbey.id}")
+  end
+
+
+    expect(page).not_to have_selector("#favorite-#{sadie.id}")
 
     within("#favorite-#{abbey.id}") do
       expect(page).to have_content("Abbey")
@@ -73,10 +78,110 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     click_link("Adopt")
 
-    expect(current_path).to eq("/application/new")
+    expect(current_path).to eq("/applications/new")
 
     within("#pet-#{snickers.id}") do
       page.check
     end
+
+    within("#pet-#{sadie.id}") do
+      page.check
+    end
+    within("#pet-#{abbey.id}") do
+      page.check
+      page.uncheck
+    end
+
+    fill_in "Address", with: "24025 Nothing st"
+    fill_in "City", with: "Denver"
+    fill_in "State", with: "CO"
+    fill_in "Zip", with: "98027"
+    fill_in "Phone Number", with: "777-777-7777"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
+    fill_in "Name", with: "Cassie Achzenick"
+    fill_in "City", with: "Denver"
+    fill_in "State", with: "CO"
+    fill_in "Zip", with: "98027"
+    fill_in "Phone Number", with: "777-777-7777"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
+    fill_in "Name", with: "Cassie Achzenick"
+    fill_in "Address", with: "24025 Nothing st"
+    fill_in "State", with: "CO"
+    fill_in "Zip", with: "98027"
+    fill_in "Phone Number", with: "777-777-7777"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
+    fill_in "Name", with: "Cassie Achzenick"
+    fill_in "Address", with: "24025 Nothing st"
+    fill_in "City", with: "Denver"
+    fill_in "Zip", with: "98027"
+    fill_in "Phone Number", with: "777-777-7777"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
+    fill_in "Name", with: "Cassie Achzenick"
+    fill_in "Address", with: "24025 Nothing st"
+    fill_in "City", with: "Denver"
+    fill_in "State", with: "CO"
+    fill_in "Phone Number", with: "777-777-7777"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
+    fill_in "Name", with: "Cassie Achzenick"
+    fill_in "Address", with: "24025 Nothing st"
+    fill_in "City", with: "Denver"
+    fill_in "State", with: "CO"
+    fill_in "Zip", with: "98027"
+    fill_in "Description of why you'd make a good home for this/these pet(s)", with: "Becuase I love them"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
+    fill_in "Name", with: "Cassie Achzenick"
+    fill_in "Address", with: "24025 Nothing st"
+    fill_in "City", with: "Denver"
+    fill_in "State", with: "CO"
+    fill_in "Zip", with: "98027"
+    fill_in "Phone Number", with: "777-777-7777"
+
+    click_button "Submit My Application"
+
+    expect(current_path).to eq('/applications/new')
+
+    expect(page).to have_content("You must complete all fields on this form in order to submit your application.")
+
   end
 end

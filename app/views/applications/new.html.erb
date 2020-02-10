@@ -1,7 +1,7 @@
 <h1>Bring Home Your New Best Friend!!! </h1>
 
 
-<%= form_tag "/application", method: :post  do %>
+<%= form_tag "/applications", method: :post  do %>
   <% @pets.each do |pet| %>
     <section id='pet-<%= pet.id %>'>
       <%= image_tag("#{pet.image}", :size => "260x180") %><br><br>

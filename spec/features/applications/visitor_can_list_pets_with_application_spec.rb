@@ -10,21 +10,24 @@ RSpec.describe "vistor can see a list of all pets with applications on their fav
 
     visit "/pets/#{snickers.id}"
 
-    click_link("Favorite")
+
+    click_link("Favorite Pet")
 
     visit "/pets/#{sadie.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
 
     visit "/pets/#{abbey.id}"
 
-    click_link("Favorite")
+    click_link("Favorite Pet")
+
 
     visit "/favorites"
 
     click_link("Adopt")
 
-    expect(current_path).to eq("/application/new")
+    expect(current_path).to eq("/applications/new")
+
 
     within("#pet-#{snickers.id}") do
       page.check
