@@ -24,7 +24,7 @@ RSpec.describe "vistor can see a list of all pets with applications on their fav
 
     click_link("Adopt")
 
-    expect(current_path).to eq("/application/new")
+    expect(current_path).to eq("/applications/new")
 
     within("#pet-#{snickers.id}") do
       page.check

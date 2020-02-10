@@ -24,7 +24,7 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     click_link("Adopt")
 
-    expect(current_path).to eq("/application/new")
+    expect(current_path).to eq("/applications/new")
 
     within("#pet-#{snickers.id}") do
       page.check
