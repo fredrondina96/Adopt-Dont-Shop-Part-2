@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200209025209) do
+ActiveRecord::Schema.define(version: 20200210201125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20200209025209) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   create_table "pet_applications", force: :cascade do |t|
@@ -72,19 +73,6 @@ ActiveRecord::Schema.define(version: 20200209025209) do
 
   add_foreign_key "pet_applications", "applications"
   add_foreign_key "pet_applications", "pets"
-<<<<<<< HEAD
-<<<<<<< HEAD
   add_foreign_key "pets", "shelters"
   add_foreign_key "reviews", "shelters"
-=======
-
-
-  add_foreign_key "pets", "shelters"
-  add_foreign_key "reviews", "shelters"
-
->>>>>>> ff706e7a4937efceebd7217d6ce717e218be9f36
-=======
-  add_foreign_key "pets", "shelters"
-  add_foreign_key "reviews", "shelters"
->>>>>>> 96a91930a042a7a78cd4a9fad53161902f85b242
 end
