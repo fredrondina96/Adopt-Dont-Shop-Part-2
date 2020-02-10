@@ -13,4 +13,6 @@
     <%=link_to 'Remove Favorite', "/favorite/#{params[:id]}", method: :delete %><br>
   <%end%>
 <%= link_to 'Update Pet', "/pets/#{params[:id]}/edit" %><br>
-<%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br>
+<%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br><br><br>
+
+<%= link_to 'View All Applications', "/pets/#{@pet.id}/applications"%>
