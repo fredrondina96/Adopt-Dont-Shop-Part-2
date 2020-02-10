@@ -72,19 +72,6 @@ ActiveRecord::Schema.define(version: 20200209025209) do
 
   add_foreign_key "pet_applications", "applications"
   add_foreign_key "pet_applications", "pets"
-<<<<<<< HEAD
-<<<<<<< HEAD
   add_foreign_key "pets", "shelters"
   add_foreign_key "reviews", "shelters"
-=======
-
-
-  add_foreign_key "pets", "shelters"
-  add_foreign_key "reviews", "shelters"
-
->>>>>>> ff706e7a4937efceebd7217d6ce717e218be9f36
-=======
-  add_foreign_key "pets", "shelters"
-  add_foreign_key "reviews", "shelters"
->>>>>>> 96a91930a042a7a78cd4a9fad53161902f85b242
 end
