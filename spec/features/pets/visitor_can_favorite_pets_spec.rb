@@ -72,4 +72,32 @@ RSpec.describe "Visitor can favorite and view their favorites" do
     expect(page).to have_content("Favorites: 0")
 
   end
+
+  it "When I visit the favorites page, I see a link to remove pets" do
+
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+    snoop = Pet.create!(image: 'https://www.pinclipart.com/picdir/big/2-21285_clip-art-snoopy-snoop-dogg-charlie-brown-png.png', name: 'Snoop', age: 9, sex: 'Male', shelter: shelter1)
+
+    visit "/pets/#{snoop.id}"
+    click_link("Favorite Pet")
+
+    visit "/favorites"
+    expect(page).to have_content("Snoop")
+    expect(page).to have_link("Remove Favorite")
+    click_link("Remove Favorite")
+    expect(current_path).to eq("/favorites")
+    expect(page).to_not have_content("Snoop")
+    expect(page).to have_content("Favorites: 0")
+    # User Story 13, Remove a Favorite from Favorites Page
+
+    # As a visitor
+    # When I have added pets to my favorites list
+    # And I visit my favorites page ("/favorites")
+    # Next to each pet, I see a button or link to remove that pet from my favorites
+    # When I click on that button or link to remove a favorite
+    # A delete request is sent to "/favorites/:pet_id"
+    # And I'm redirected back to the favorites page where I no longer see that pet listed
+    # And I also see that the favorites indicator has decremented by 1
+  end
 end
