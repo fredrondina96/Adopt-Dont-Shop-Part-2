@@ -21,6 +21,13 @@ class Favorite
     end
   end
 
+  def pet_check(pet_id)
+      if self.contents[pet_id] == 1
+        return true
+      else false
+    end
+  end
+
   def all_pets
     pets = []
     @contents.map do |pet_id, amount|

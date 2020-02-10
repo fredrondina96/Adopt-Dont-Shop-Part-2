@@ -19,7 +19,7 @@ RSpec.describe Favorite do
       expect(subject.contents).to eq({'1' => 3, '2' => 4})
     end
 
-    it "adds a song that hasn't been added yet" do
+    it "adds a pet that hasn't been added yet" do
       subject = Favorite.new({'1' => 2, '2' => 3})
       subject.add_pet('3')
 
