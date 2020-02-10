@@ -1,21 +1,25 @@
 <h1>Favorited Pets:</h1><br><br>
+<% if favorites.contents == {} %>
+  <p> No Favorites </p><br>
+<%else%>
 
- <% favorites.contents.keys.each do |pet| %>
-  <section id='favorite-<%=pet.to_i%>'>
-  
-    <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet.to_i}" %>
-    <%=link_to 'Remove Favorite', "/favorites/#{pet}", method: :delete %><br>
-    <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
-  </section>
- <% end %>
+   <% favorites.contents.keys.each do |pet| %>
+    <section id='favorite-<%=pet.to_i%>'>
 
- <%= link_to "Adopt", "/applications/new" %></br></br></br>
-
- <h1>Pets with Pending Applications:</h1>
-<% @applications.each do |application|%>
-  <%application.pets.each do |pet|%>
-    <section id='application-<%=pet.id%>'>
-      <%= link_to pet.name, "/pets/#{pet.id}"%><br>
+      <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet.to_i}" %>
+      <%=link_to 'Remove Favorite', "/favorites/#{pet}", method: :delete %><br>
+      <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
     </section>
-  <%end%>
+   <% end %>
+
+   <%= link_to "Adopt", "/applications/new" %></br></br></br>
+
+   <h1>Pets with Pending Applications:</h1>
+  <% @applications.each do |application|%>
+    <%application.pets.each do |pet|%>
+      <section id='application-<%=pet.id%>'>
+        <%= link_to pet.name, "/pets/#{pet.id}"%><br>
+      </section>
+    <%end%>
+    <%end%>
 <%end%>
