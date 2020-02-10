@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe "Visitors can select pets from their favorites to apply for" do
-  it "applys for a pet" do
+RSpec.describe "vistor can see a list of all pets with applications on their favorites page" do
+  it "shows all pets with applications" do
     shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
 
     snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
@@ -10,15 +10,15 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     visit "/pets/#{snickers.id}"
 
-    click_link("Favorite Pet")
+    click_link("Favorite")
 
     visit "/pets/#{sadie.id}"
 
-    click_link("Favorite Pet")
+    click_link("Favorite")
 
     visit "/pets/#{abbey.id}"
 
-    click_link("Favorite Pet")
+    click_link("Favorite")
 
     visit "/favorites"
 
@@ -32,10 +32,6 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
     within("#pet-#{sadie.id}") do
       page.check
     end
-    within("#pet-#{abbey.id}") do
-      page.check
-      page.uncheck
-    end
 
     fill_in "Name", with: "Cassie Achzenick"
     fill_in "Address", with: "24025 Nothing st"
@@ -47,36 +43,18 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
 
     click_button "Submit My Application"
 
-    #flash message:
-    expect(page).to have_content("You have successfully completed your application!!!")
-
     expect(current_path).to eq("/favorites")
 
-    expect(page).not_to have_selector("#favorite-#{snickers.id}")
+    expect(page).to have_content("Pets with Pending Applications:")
 
-    expect(page).not_to have_selector("#favorite-#{sadie.id}")
-
-    within("#favorite-#{abbey.id}") do
-      expect(page).to have_content("Abbey")
-
-    click_link("Favorite Pet")
-
-    visit "/pets/#{sadie.id}"
-
-    click_link("Favorite Pet")
-
-    visit "/pets/#{abbey.id}"
-
-    click_link("Favorite Pet")
-
-    visit "/favorites"
-
-    click_link("Adopt")
-
-    expect(current_path).to eq("/application/new")
-
-    within("#pet-#{snickers.id}") do
-      page.check
+    within("#application-#{snickers.id}") do
+      expect(page).to have_link("Snickers")
     end
+    within("#application-#{sadie.id}") do
+      expect(page).to have_link("Sadie")
+      click_link("Sadie")
+    end
+
+    expect(current_path).to eq("/pets/#{sadie.id}")
   end
 end

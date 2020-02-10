@@ -1,5 +1,10 @@
-<h1>Favorited Pets</h1><br><br>
+<h1>Favorited Pets:</h1><br><br>
 
+ <% favorites.contents.keys.each do |pet| %>
+  <section id='favorite-<%=pet.to_i%>'>
+    <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet.to_i}" %>
+    <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
+  </section>
  <% favorites.contents.each do |pet_id, favorite| %>
 
   <%if favorite >= 1%>
@@ -8,4 +13,13 @@
   <%end%>
  <% end %>
 
- <%= link_to "Adopt", "/application/new" %>
+ <%= link_to "Adopt", "/application/new" %></br></br></br>
+
+ <h1>Pets with Pending Applications:</h1>
+<% @applications.each do |application|%>
+  <%application.pets.each do |pet|%>
+    <section id='application-<%=pet.id%>'>
+      <%= link_to pet.name, "/pets/#{pet.id}"%><br>
+    </section>
+  <%end%>
+<%end%>
