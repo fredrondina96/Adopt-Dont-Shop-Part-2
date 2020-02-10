@@ -57,7 +57,8 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
     expect(page).to have_selector("#favorite-#{abbey.id}")
   end
 
-  it "doesnt submit application if information is missing" do
+  it "will not submit if information is missing" do
+
     shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
 
     snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
@@ -85,6 +86,7 @@ RSpec.describe "Visitors can select pets from their favorites to apply for" do
     within("#pet-#{snickers.id}") do
       page.check
     end
+
     within("#pet-#{sadie.id}") do
       page.check
     end
