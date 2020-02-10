@@ -10,7 +10,6 @@ RSpec.describe "vistor can see a list of all pets with applications on their fav
 
     visit "/pets/#{snickers.id}"
 
-
     click_link("Favorite Pet")
 
     visit "/pets/#{sadie.id}"
@@ -21,13 +20,11 @@ RSpec.describe "vistor can see a list of all pets with applications on their fav
 
     click_link("Favorite Pet")
 
-
     visit "/favorites"
 
     click_link("Adopt")
 
     expect(current_path).to eq("/applications/new")
-
 
     within("#pet-#{snickers.id}") do
       page.check
@@ -59,5 +56,15 @@ RSpec.describe "vistor can see a list of all pets with applications on their fav
     end
 
     expect(current_path).to eq("/pets/#{sadie.id}")
+  end
+
+  it "If a pet has no applications it says that on the pets page" do
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+
+    visit "/pets/#{snickers.id}"
+
+    expect(page).to have_content("There are no applications for this pet... Yet")
   end
 end
