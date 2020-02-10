@@ -2,7 +2,9 @@
 
  <% favorites.contents.keys.each do |pet| %>
   <section id='favorite-<%=pet.to_i%>'>
+  
     <%= link_to "#{Pet.find(pet).name}", "/pets/#{pet.to_i}" %>
+    <%=link_to 'Remove Favorite', "/favorites/#{pet}", method: :delete %><br>
     <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
   </section>
  <% end %>

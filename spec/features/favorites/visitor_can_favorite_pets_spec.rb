@@ -72,4 +72,19 @@ RSpec.describe "Visitor can favorite and view their favorites" do
     expect(page).to have_content("Favorites: 0")
 
   end
+
+  it "I can remove pets from my favorites from /favorites" do
+
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+    snoop = Pet.create!(image: 'https://www.pinclipart.com/picdir/big/2-21285_clip-art-snoopy-snoop-dogg-charlie-brown-png.png', name: 'Snoop', age: 9, sex: 'Male', shelter: shelter1)
+    visit "/pets/#{snoop.id}"
+    click_link("Favorite Pet")
+    visit "/favorites"
+    expect(page).to have_content("Snoop")
+    expect(page).to have_link("Remove Favorite")
+    click_link("Remove Favorite")
+    expect(current_path).to eq("/favorites")
+
+  end
 end
