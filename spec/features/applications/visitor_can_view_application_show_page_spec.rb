@@ -35,7 +35,7 @@ RSpec.describe "Visitor can view individual applications on their show page" do
     application2 = Application.create!(name: 'Cassie', address: 'nothing st', city: "San Diego", state: "CA", zip: "35324", phone_number: "7777777777", description: "I love dogs")
 
     application1.pets << snickers
-    applicantion2.pets << snickers
+    application2.pets << snickers
     application1.pets << sadie
 
     visit "/pets/#{snickers.id}"
@@ -51,6 +51,6 @@ RSpec.describe "Visitor can view individual applications on their show page" do
 
     click_link("Chelsea")
 
-    expect(current_path).to eq("applications/#{chelsea.id}")
+    expect(current_path).to eq("/applications/#{application1.id}")
   end
 end
