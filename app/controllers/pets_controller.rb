@@ -10,6 +10,7 @@ class PetsController < ApplicationController
 
   def show
      @pet = Pet.find(params[:id])
+     @application = @pet.applications.find{ |app| app.status == "approved"}
   end
 
   def new
