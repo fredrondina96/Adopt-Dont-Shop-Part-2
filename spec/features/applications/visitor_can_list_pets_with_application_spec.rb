@@ -66,5 +66,6 @@ RSpec.describe "vistor can see a list of all pets with applications on their fav
     visit "/pets/#{snickers.id}"
 
     expect(page).to have_content("There are no applications for this pet... Yet")
+    expect(page).not_to have_content("View All Applications")
   end
 end
