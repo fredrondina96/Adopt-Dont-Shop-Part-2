@@ -15,15 +15,17 @@ class FavoriteController < ApplicationController
 
   def destroy
     favorites.contents.delete(params[:pet_id])
-    # binding.pry
     redirect_to "/pets/#{params[:pet_id]}"
     flash[:notice] = "Pet removed from favorites"
   end
 
+  def destroy_all
+    favorites.contents.clear
+    redirect_to "/favorites"
+  end
+
   def remove_favorite
-    # binding.pry
     favorites.contents.delete(params[:id])
-    # binding.pry
     redirect_to "/favorites"
     flash[:notice] = "Pet removed from favorites"
   end
