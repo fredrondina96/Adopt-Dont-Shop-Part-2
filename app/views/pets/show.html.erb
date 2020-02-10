@@ -6,13 +6,21 @@
 <p>Description: <%= @pet.description %></p><br>
 <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %></p><br>
 <p>Status: <%= @pet.adoption_status %></p><br>
+<% if @pet.adoption_status == "Pending" %>
+  On hold for <%= @application.name%>
+<%end%>
 
   <% if favorites.pet_check(params[:id]) == false%>
    <%=link_to 'Favorite Pet', "/favorite/#{params[:id]}", method: :patch %><br>
   <% else%>
     <%=link_to 'Remove Favorite', "/favorite/#{params[:id]}", method: :delete %><br>
   <%end%>
+
 <%= link_to 'Update Pet', "/pets/#{params[:id]}/edit" %><br>
 <%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br><br><br>
 
-<%= link_to 'View All Applications', "/pets/#{@pet.id}/applications"%>
+<% if @pet.applications.length == 0 %>
+    There are no applications for this pet... Yet
+  <% else %>
+    <%= link_to 'View All Applications', "/pets/#{@pet.id}/applications"%>
+  <% end %>
