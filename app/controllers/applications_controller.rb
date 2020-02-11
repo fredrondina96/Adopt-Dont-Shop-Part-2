@@ -7,6 +7,7 @@ class ApplicationsController < ApplicationController
     application = Application.new(application_params)
 
     if application.save
+      application_save_success
       flash[:notice] = "You have successfully completed your application!!!"
       params[:adopt_pets].each do |pet|
         adopted_pet = Pet.find(pet)
@@ -30,13 +31,13 @@ class ApplicationsController < ApplicationController
   end
 
   def update
-    @application = Application.find(params[:application_id])
-    @application.status = "approved"
-    @application.save
-    @pet = Pet.find(params[:pet_id])
-    @pet.adoption_status = "Pending"
-    @pet.save
-    redirect_to "/pets/#{@pet.id}"
+    application = Application.find(params[:application_id])
+    application.status = "approved"
+    application.save
+    pet = Pet.find(params[:pet_id])
+    pet.adoption_status = "Pending"
+    pet.save
+    redirect_to "/pets/#{pet.id}"
   end
 
   private
