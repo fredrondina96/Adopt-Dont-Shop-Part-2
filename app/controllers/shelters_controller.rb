@@ -27,12 +27,31 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    Shelter.destroy(params[:id])
-    redirect_to "/shelters"
+    shelter = Shelter.find(params[:id])
+    if approved_application?
+      flash[:notice] = "#{shelter.name} has approved applications and cannot be deleted at this time."
+      redirect_to "/shelters/#{shelter.id}"
+    else
+      Shelter.destroy(params[:id])
+      redirect_to "/shelters"
+    end
   end
 
   private
   def shelter_params
     params.permit(:name, :address, :city, :zip, :state)
+  end
+
+  def approved_application?
+    shelter = Shelter.find(params[:id])
+
+    answer = false
+
+    shelter.pets.each do |pet|
+     answer = pet.applications.any? do |application|
+        application.status == "approved"
+      end
+    end
+    answer
   end
 end
