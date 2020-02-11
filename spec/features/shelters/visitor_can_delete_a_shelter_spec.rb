@@ -44,7 +44,7 @@ RSpec.describe "A shelter can be deleted", type: :feature do
     sadie = Pet.create!(image: 'https://images.halloweencostumes.com/products/45834/1-1/dog-dino-pup-costume.jpg', name: 'Sadie', age: 3, sex: "Male", shelter: shelter1)
     abbey = Pet.create!(image: 'https://www.rover.com/blog/wp-content/uploads/2019/09/frisco-raptor-e1567812754551.jpg', name: 'Abbey', age: 6, sex: "Female", shelter: shelter2)
 
-    application1 = Application.create!(name: 'Chelsea', address: 'something st', city: "Denver", state: "CO", zip: "39403", phone_number: "5739495835", description: "because", status: "approved")
+    application1 = Application.create!(name: 'Chelsea', address: 'something st', city: "Denver", state: "CO", zip: "39403", phone_number: "5739495835", description: "because")
 
     application1.pets << snickers
     application1.pets << sadie
@@ -54,6 +54,8 @@ RSpec.describe "A shelter can be deleted", type: :feature do
     expect(page).to have_link("Delete Shelter")
 
     click_link("Delete Shelter")
+
+    expect(page).to_not have_content("#{shelter1.name} has approved applications and cannot be deleted at this time.")
 
     expect(current_path).to eq("/shelters")
 
