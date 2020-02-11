@@ -11,4 +11,8 @@ class Pet < ApplicationRecord
   def approved_application
     applications.where(status: "approved")[0]
   end
+
+  def adoptable?
+    adoption_status == "Adoptable"
+  end
 end

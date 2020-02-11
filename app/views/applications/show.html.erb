@@ -12,7 +12,11 @@ Pets:
 <% @application.pets.each do |pet| %>
   <section id='application-<%=pet.id%>'>
   <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
-  <%= link_to "Approve Application for #{pet.name}", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
+  <%if pet.adoptable? %>
+    <%= link_to "Approve Application for #{pet.name}", "/applications/#{@application.id}/pets/#{pet.id}", method: :patch %>
+  <% else %>
+    <%= link_to "Unapprove Application For #{pet.name}", "/applications/#{@application.id}/pets/#{pet.id}", method: :delete %>
+  <% end %>
 
   <%= check_box_tag "select_pet[]", pet.id %>
   </section>

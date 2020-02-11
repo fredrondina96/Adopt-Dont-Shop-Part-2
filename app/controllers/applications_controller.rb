@@ -45,6 +45,16 @@ class ApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    application = Application.find(params[:application_id])
+    pet = Pet.find(params[:pet_id])
+    application.status = nil
+    application.save
+    pet.adoption_status = "Adoptable"
+    pet.save
+    redirect_to "/applications/#{application.id}"
+  end
+
   private
     def application_params
       params.permit(:name, :address, :city, :state, :zip, :phone_number, :description)

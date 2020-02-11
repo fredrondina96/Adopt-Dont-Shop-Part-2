@@ -124,7 +124,7 @@ RSpec.describe "Visitors can approve applications" do
 
     click_link("Unapprove Application For Snickers")
 
-    expect(current_path).to eq("applications/#{application.id}")
+    expect(current_path).to eq("/applications/#{application1.id}")
 
     expect(page).to have_link("Approve Application for Snickers")
 
