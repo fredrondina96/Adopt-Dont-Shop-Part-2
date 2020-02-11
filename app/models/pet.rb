@@ -9,6 +9,6 @@ class Pet < ApplicationRecord
   end
 
   def approved_application
-    applications.where(status: "approved")
+    applications.where(status: "approved")[0]
   end
 end

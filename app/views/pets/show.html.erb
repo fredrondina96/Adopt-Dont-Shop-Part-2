@@ -7,7 +7,7 @@
 <p>Shelter: <%= link_to "#{@pet.shelter.name}", "/shelters/#{@pet.shelter.id}" %></p><br>
 <p>Status: <%= @pet.adoption_status %></p><br>
 <% if @pet.adoption_status == "Pending" %>
-  On hold for <%= @pet.approved_application.name%>
+  On hold for <%= "#{@pet.approved_application.name}"%>
 <%end%>
 
   <% if favorites.pet_check(params[:id]) == false%>

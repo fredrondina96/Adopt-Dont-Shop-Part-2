@@ -7,18 +7,9 @@ class ApplicationsController < ApplicationController
     application = Application.new(application_params)
 
     if application.save
-      application_save_success
-      flash[:notice] = "You have successfully completed your application!!!"
-      params[:adopt_pets].each do |pet|
-        adopted_pet = Pet.find(pet)
-        adopted_pet.applications << application
-        favorites.contents.delete(pet)
-      end
-
-      redirect_to '/favorites'
+      application_save_success(application)
     else
-      redirect_to '/applications/new'
-      flash[:notice] = "You must complete all fields on this form in order to submit your application."
+      application_save_failure(application)
     end
   end
 
@@ -43,5 +34,20 @@ class ApplicationsController < ApplicationController
   private
     def application_params
       params.permit(:name, :address, :city, :state, :zip, :phone_number, :description)
+    end
+
+    def application_save_success(application)
+      flash[:notice] = "You have successfully completed your application!!!"
+      params[:adopt_pets].each do |pet|
+        adopted_pet = Pet.find(pet)
+        adopted_pet.applications << application
+        favorites.contents.delete(pet)
+      end
+        redirect_to '/favorites'
+    end
+
+    def application_save_failure(application)
+      redirect_to '/applications/new'
+      flash[:notice] = "You must complete all fields on this form in order to submit your application."
     end
 end
