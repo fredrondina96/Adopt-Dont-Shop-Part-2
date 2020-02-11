@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "A shelter can be delted", type: :feature do
+RSpec.describe "A shelter can be deleted", type: :feature do
   it "deletes a shelter" do
     shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
 
