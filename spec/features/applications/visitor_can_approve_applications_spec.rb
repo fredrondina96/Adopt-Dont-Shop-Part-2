@@ -52,7 +52,7 @@ RSpec.describe "Visitors can approve applications" do
       page.check
     end
 
-    click_link("Approve All Selected Pets")
+    click_button("Approve All Selected Pets")
 
     visit "/pets/#{sadie.id}"
 
@@ -63,8 +63,5 @@ RSpec.describe "Visitors can approve applications" do
 
     expect(page).to have_content("Status: Pending")
     expect(page).to have_content("On hold for Chelsea")
-
-
-# I'm able to approve the application for any number of pets
   end
 end

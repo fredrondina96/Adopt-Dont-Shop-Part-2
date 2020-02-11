@@ -25,10 +25,19 @@ class ApplicationsController < ApplicationController
     application = Application.find(params[:application_id])
     application.status = "approved"
     application.save
-    pet = Pet.find(params[:pet_id])
-    pet.adoption_status = "Pending"
-    pet.save
-    redirect_to "/pets/#{pet.id}"
+    if !params[:select_pet].nil?
+      params[:select_pet].each do |pet_id|
+        pet = Pet.find(pet_id)
+        pet.adoption_status = "Pending"
+        pet.save
+      end
+      redirect_to "/applications/#{application.id}"
+    else
+      pet = Pet.find(params[:pet_id])
+      pet.adoption_status = "Pending"
+      pet.save
+      redirect_to "/pets/#{pet.id}"
+    end
   end
 
   private
