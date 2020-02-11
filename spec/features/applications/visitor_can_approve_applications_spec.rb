@@ -68,8 +68,8 @@ RSpec.describe "Visitors can approve applications" do
   it "only 1 application can be approved per pet" do
     shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
 
-    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1, adoption_statu: "pending")
-    sadie = Pet.create!(image: 'https://images.halloweencostumes.com/products/45834/1-1/dog-dino-pup-costume.jpg', name: 'Sadie', age: 3, sex: "Male", shelter: shelter1, adoption_statu: "pending")
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1, adoption_status: "pending")
+    sadie = Pet.create!(image: 'https://images.halloweencostumes.com/products/45834/1-1/dog-dino-pup-costume.jpg', name: 'Sadie', age: 3, sex: "Male", shelter: shelter1, adoption_status: "pending")
 
     application1 = Application.create!(name: 'Chelsea', address: 'something st', city: "Denver", state: "CO", zip: "39403", phone_number: "5739495835", description: "because", status: "approved")
     application2 = Application.create!(name: 'Cassie', address: 'nothing st', city: "Seattle", state: "WA", zip: "39402", phone_number: "7777777777", description: "I love dogs")
@@ -81,7 +81,7 @@ RSpec.describe "Visitors can approve applications" do
 
     visit "/pets/#{sadie.id}"
 
-    expect(page).to have_content("Status: Pending")
+    expect(page).to have_content("Status: pending")
     expect(page).to have_content("On hold for Chelsea")
 
     visit "/pets/#{snickers.id}"
