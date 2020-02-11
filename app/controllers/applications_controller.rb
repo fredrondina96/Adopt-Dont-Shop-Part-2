@@ -23,6 +23,11 @@ class ApplicationsController < ApplicationController
 
   def update
     application = Application.find(params[:application_id])
+    application.pets.each do |pet|
+      if pet.adoption_status == "Pending"
+        flash[:notice] = "No more applications can be approved for #{pet.name} at this time."
+      end
+    end
     application.status = "approved"
     application.save
     if !params[:select_pet].nil?
