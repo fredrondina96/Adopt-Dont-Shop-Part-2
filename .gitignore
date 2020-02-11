@@ -18,4 +18,9 @@
 
 .byebug_history
 
+<<<<<<< HEAD
 /coverage
+=======
+/coverage.data
+/coverage/
+>>>>>>> eaf7884154bfd61542aaa930db8d55bfaf221948
