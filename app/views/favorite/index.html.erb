@@ -11,6 +11,7 @@
       <%= image_tag("#{Pet.find(pet).image}", :size => "260x180") %>
     </section>
    <% end %>
+   <%=link_to 'Remove All Favorites', "/favorites/", method: :delete %><br>
 
    <%= link_to "Adopt", "/applications/new" %></br></br></br>
 
@@ -21,5 +22,5 @@
         <%= link_to pet.name, "/pets/#{pet.id}"%><br>
       </section>
     <%end%>
-    <%end%>
+  <%end%>
 <%end%>
