@@ -31,9 +31,9 @@ RSpec.describe "A visitor can delte a pet" do
 
     shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
 
-    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1, adoption_status: "Pending")
 
-    application1 = Application.create!(name: 'Chelsea', address: 'something st', city: "Denver", state: "CO", zip: "39403", phone_number: "5739495835", description: "because", status: "Approved")
+    application1 = Application.create!(name: 'Chelsea', address: 'something st', city: "Denver", state: "CO", zip: "39403", phone_number: "5739495835", description: "because", status: "approved")
 
     application1.pets << snickers
 
@@ -42,6 +42,6 @@ RSpec.describe "A visitor can delte a pet" do
     click_link("Delete Pet")
 
     expect(current_path).to eq("/pets/#{snickers.id}")
-    expect(page).to eq("#{snickers.name} has an approved application and cannot be deleted at this time.")
+    expect(page).to have_content("Snickers has an approved application and cannot be deleted at this time.")
   end
 end
