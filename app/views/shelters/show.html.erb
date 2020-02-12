@@ -4,14 +4,16 @@
 <p>State: <%= @shelter.state %></p><br>
 <p>Zip: <%= @shelter.zip %></p><br>
 
+<h3>Total Pets: <%= @shelter.total_pets%></h3>
+<h3>Total Applications: <%= @shelter.total_applications%></h3>
 <%= link_to "#{@shelter.name}'s Available Pets", "/shelters/#{@shelter.id}/pets"%><br>
 
 <%= link_to 'Update Shelter', "/shelters/#{@shelter.id}/edit"%><br>
 
 <%= link_to 'Delete Shelter', "/shelters/#{@shelter.id}/", method: :delete%><br>
 
-<h1>Reviews</h1>
-
+<h1>Reviews</h1><br>
+<h2>Average Review Rating: <%=@shelter.average_review_rating.round(2)%></h2>
 <%= link_to 'New Review', "/shelters/#{@shelter.id}/reviews/new"%><br>
 <% @shelter.reviews.each do |review| %>
   <section id = "review-<%=review.id%>">
