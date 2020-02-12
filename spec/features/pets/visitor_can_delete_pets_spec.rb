@@ -40,11 +40,8 @@ RSpec.describe "A visitor can delte a pet" do
     visit "/pets/#{snickers.id}"
 
     click_link("Delete Pet")
-# If a pet has an approved application on them
-# I can not delete that pet
-# Either:
-#
-# there is no button visible for me to delete the pet
-# if I click on the delete button, I see a flash message indicating that the pet can not be deleted.
+
+    expect(current_path).to eq("/pets/#{snickers.id}")
+    expect(page).to eq("#{snickers.name} has an approved application and cannot be deleted at this time.")
   end
 end
