@@ -31,4 +31,26 @@ RSpec.describe "A visitor can update shelter information from the shelter index 
     expect(page).to have_content("New York")
     expect(page).to have_content("48023")
   end
+
+  it "tells user if they did not provide all required fields" do
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+
+    visit "/shelters"
+
+    click_link("Edit Shelter #{shelter1.name}")
+
+    expect(current_path).to eq("/shelters/#{shelter1.id}/edit")
+
+    fill_in "name", with: "Adopt a top"
+    fill_in "address", with: "58205 st"
+    fill_in "state", with: "New York"
+    fill_in "zip", with: "48023"
+
+    expect(page).to have_button("Submit")
+
+    click_on "Submit"
+
+    expect(current_path).to eq("/shelters/#{shelter1.id}/edit")
+    expect(page).to have_content("City can't be blank")
+  end
 end
