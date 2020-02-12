@@ -17,9 +17,9 @@ RSpec.describe "A visitor can add a new pet to a shelter from the shelter index 
 
     fill_in "Image", with: "https://img.chewy.com/is/image/catalog/130621_MAIN._AC_SL1500_V1533919943_.jpg"
     fill_in "Name", with: "Bubbles"
-    fill_in "Description", with: "part cute part adorable"
     fill_in "Age", with: "7"
     fill_in "sex", with: "male"
+    fill_in "Description", with: "Cute and Cuddly"
 
     expect(page).to have_button("Submit")
 
@@ -40,12 +40,11 @@ RSpec.describe "A visitor can add a new pet to a shelter from the shelter index 
 
     fill_in "Image", with: "https://img.chewy.com/is/image/catalog/130621_MAIN._AC_SL1500_V1533919943_.jpg"
     fill_in "Name", with: "Bubbles"
-    fill_in "Age", with: "7"
     fill_in "sex", with: "male"
 
     click_on "Submit"
 
     expect(current_path).to eq("/shelters/#{shelter1.id}/pets/new")
-    expect(page).to have_content("Pet not created because Description is missing")
+    expect(page).to have_content("Age can't be blank")
   end
 end
