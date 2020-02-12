@@ -35,6 +35,7 @@ class PetsController < ApplicationController
   def destroy
     pet = Pet.find(params[:id])
     if pet.adoptable?
+      favorites.contents.delete(pet.id.to_s)
       Pet.destroy(params[:id])
       redirect_to "/pets"
     else
