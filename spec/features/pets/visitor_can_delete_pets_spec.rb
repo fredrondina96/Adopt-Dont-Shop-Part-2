@@ -26,4 +26,25 @@ RSpec.describe "A visitor can delte a pet" do
     expect(page).to have_content("#{shelter2.name}")
 
   end
+
+  it "can't delete a pet if there is an approved application" do
+
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+
+    snickers = Pet.create!(image: 'https://images-na.ssl-images-amazon.com/images/I/41Q-6cQEOLL._AC_SY400_.jpg', name: 'Snickers', age: 15, sex: 'Female', shelter: shelter1)
+
+    application1 = Application.create!(name: 'Chelsea', address: 'something st', city: "Denver", state: "CO", zip: "39403", phone_number: "5739495835", description: "because", status: "Approved")
+
+    application1.pets << snickers
+
+    visit "/pets/#{snickers.id}"
+
+    click_link("Delete Pet")
+# If a pet has an approved application on them
+# I can not delete that pet
+# Either:
+#
+# there is no button visible for me to delete the pet
+# if I click on the delete button, I see a flash message indicating that the pet can not be deleted.
+  end
 end

@@ -57,8 +57,10 @@ class SheltersController < ApplicationController
     answer = false
 
     shelter.pets.each do |pet|
-     answer = pet.applications.any? do |application|
-        application.status == "approved"
+     pet.applications.each do |application|
+        if application.status == "approved"
+          answer = true
+        end
       end
     end
     answer
