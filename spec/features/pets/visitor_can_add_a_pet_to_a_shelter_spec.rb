@@ -32,4 +32,20 @@ RSpec.describe "A visitor can add a new pet to a shelter from the shelter index 
     expect(page).to have_content("male")
     expect(page).to have_no_content("Snickers")
   end
+
+  it "If user doesn't input all data to create a flash message alerts them" do
+    shelter1 = Shelter.create!(name: 'humane society', address: "1234 st", city: 'Denver', state: 'Colorado', zip: "29572")
+
+    visit "/shelters/#{shelter1.id}/pets/new"
+
+    fill_in "Image", with: "https://img.chewy.com/is/image/catalog/130621_MAIN._AC_SL1500_V1533919943_.jpg"
+    fill_in "Name", with: "Bubbles"
+    fill_in "Age", with: "7"
+    fill_in "sex", with: "male"
+
+    click_on "Submit"
+
+    expect(current_path).to eq("/shelters/#{shelter1.id}/pets/new")
+    expect(page).to have_content("Pet not created because Description is missing")
+  end
 end
