@@ -11,14 +11,14 @@
   On hold for <%=link_to "#{@pet.approved_application.name}", "/applications/#{@pet.approved_application.id}"%>
 <%end%>
 
-  <% if favorites.pet_check(params[:id]) == false%>
-   <%=link_to 'Favorite Pet', "/favorite/#{params[:id]}", method: :patch %><br>
+  <% if favorites.pet_check(@pet.id.to_s) == false%>
+   <%=link_to 'Favorite Pet', "/favorite/#{@pet.id}", method: :patch %><br>
   <% else%>
-    <%=link_to 'Remove Favorite', "/favorite/#{params[:id]}", method: :delete %><br>
+    <%=link_to 'Remove Favorite', "/favorite/#{@pet.id}", method: :delete %><br>
   <%end%>
 
-<%= link_to 'Update Pet', "/pets/#{params[:id]}/edit" %><br>
-<%= link_to 'Delete Pet', "/pets/#{params[:id]}", method: :delete %><br><br><br>
+<%= link_to 'Update Pet', "/pets/#{@pet.id}/edit" %><br>
+<%= link_to 'Delete Pet', "/pets/#{@pet.id}", method: :delete %><br><br><br>
 
 <% if @pet.has_no_applications? %>
     There are no applications for this pet... Yet
