@@ -6,6 +6,7 @@ class PetsController < ApplicationController
 
   def show_index
     @available_pets = Pet.where(shelter_id: params[:id])
+    @shelter_id = params[:id]
   end
 
   def show

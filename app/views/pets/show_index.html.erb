@@ -12,4 +12,4 @@
   <%= link_to "Delete Pet #{pet.name}", "/pets/#{pet.id}", method: :delete %><br>
 <% end %>
 
-<br/><br/><%= link_to 'Create Pet', "/shelters/#{params[:id]}/pets/new" %><br>
+<br/><br/><%= link_to 'Create Pet', "/shelters/#{@shelter_id}/pets/new" %><br>
